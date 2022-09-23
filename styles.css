@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 18px;
+/*VARIABLES*/
+
+    /*### Primary*/
+    --active-box: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)); /*active input border*/
+    --box-error: hsl(0, 100%, 66%); /*imput borders error*/
+
+    /*### Neutral*/
+
+    --color-white: hsl(0, 0%, 100%); /*card and button text*/
+    --color-gray-light: hsl(270, 3%, 87%); /*imput borders*/
+    --color-gray-dark: hsl(279, 6%, 55%); /*added card detail*/
+    --color-violet-dark: hsl(278, 68%, 11%); /*text and buttons*/
+
+    /*TEXT & DECOR*/
+    --font-family: 'Space Grotesk', sans-serif; /*weight 500*/
+    --font-bold: 500;
+    --fs-xxl: 1.5rem;
+    --fs-xl: 1rem;
+    --fs-l: 0.65rem;
+    --fs-m: 0.56rem;
+}
+
+/*UTILITY CLASSES START*/
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    -webkit-clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    margin: -1px !important;
+}
+.no-margin{margin: 0;}
+.fullsize{width: 100%; height: 100%;}
+.flex{display: flex;}
+.flexresponsive{flex-direction: column;}
+.flexcol{flex-direction: column;}
+.flexrow{flex-direction: row;}
+.flexwrap{flex-wrap: wrap;}
+.flexgap{gap: 1.1rem;}
+.flexcenter{justify-content: center; align-items: center;}
+.flexcenter-end{justify-content: center; align-items: flex-end}
+.flexstart-end {justify-content: flex-start; align-items: flex-end;}
+.flexspace-between {justify-content: space-between; align-items: center;}
+.paddingbot{padding-bottom: 0.5rem}
+.paddingtop{padding-top: 0.5rem}
+.hidden {display: none;}
+/*UTILITY CLASSES END*/
+
+/*MOBILE FIRTS*/
+body > *{
+    font-family: var(--font-family);
+    width: 100vw;
+    height: 100%;
+}
+
+p {margin: 0;}
+
+/*############
+CARDS DESIGN
+#############*/
+/*CARDS LAYOUT AND POSTION*/
+.cards {
+    background-color: var(--color-white);
+    background-image: url('./images/bg-main-mobile.png');
+    background-repeat: no-repeat;
+    background-size: 100% 80%; /*width x height*/
+    height: 43vh;
+    width: 100%;
+    padding: 5%;
+    color: var(--color-white);
+}
+
+.cards > div {
+    width: 286px;
+    height: 157px;
+    position: relative;
+}
+
+.card-back, .card-front {
+    z-index: 10;
+}
+
+.card-info {
+    width: 100%;
+    height: 50%;
+    padding: 0 1.5rem 1rem 1rem;
+}
+
+.card-front {
+    margin-top: -3.79rem;
+    margin-right: 3rem;
+}
+
+.card-back {
+    margin-right: -3rem;
+}
+
+/*CARDS CONTENT*/
+.card-logo {
+    width: 100%;
+    height: 50%;
+    padding: 1rem;
+}
+
+.card-info > p:last-of-type{
+    text-align: right;
+}
+
+.logo-img {
+    width: 20%;
+    height: auto;
+}
+
+.card-design {
+    position: absolute;
+    z-index: -1;
+}
+
+.card-num {
+    font-size: var(--fs-xl);
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.card-detail, .card-csc {
+    font-size: var(--fs-m);
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.card-detail {
+    width: 40%;
+}
+
+.card-csc { /*Card Security Number*/
+    width: 6ch;
+    height: 3ch;
+    padding-right: 2.8rem;
+}
+
+/*############
+INPUTS FIELDS
+#############*/
+/*LAYOUT AND APPEARANCE*/
+main {
+    height: 57vh;  /*Make it max-content*/
+    width: 100%;
+}
+
+.input-form, .thank-page {
+    width: min(400px, 90%);
+    height: min(400px, 100%);
+}
+
+.input-text {
+    color: var(--color-violet-dark);
+    text-transform: uppercase;
+    font-size: var(--fs-l);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.input-field {
+    border: var(--color-gray-light) 1px solid;
+    padding: 0.5rem;
+    font-family: var(--font-family);
+    color: var(--color-violet-dark);
+    font-weight: 500;
+    font-size: var(--fs-xl);
+    border-radius: 10px;
+}
+
+.input-field::placeholder {
+    color: var(--color-gray-dark);
+}
+
+.input-field:focus {
+    outline: none;
+    background: linear-gradient(var(--color-white) 0 0) padding-box,
+    var(--active-box) border-box;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.input-field.error {
+    border: 1px solid var(--box-error);
+}
+
+.error-msg {
+    color: var(--box-error);
+    font-size: var(--fs-l);
+    font-weight: var(--font-bold);
+    display: none;
+}
+
+.error-msg.error {
+    display: block;
+}
+
+.date-csc-container {
+    width: 100%;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    gap: 0.5rem;
+}
+
+.date-container > input {
+    width: 4rem;
+}
+
+.csc-container {
+    width: 50%;
+}
+
+.csc-container > * {
+    width: 100%;
+}
+
+.input-btn {
+    width: 100%;
+    background-color: var(--color-violet-dark);
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem;
+    color: var(--color-white);
+    font-family: var(--font-family);
+    font-size: var(--fs-xl);
+    letter-spacing: 1px;
+}
+
+.thank-page {
+    gap: 1rem;
+}
+
+.thank-tittle {
+    font-size: var(--fs-xxl);
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    padding-top: 0.5rem;
+    color: var(--color-violet-dark);
+}
+
+.thank-p {
+    color: var(--color-gray-dark);
+    letter-spacing: 1px;
+    font-size: var(--fs-xl);
+    padding-bottom: 1.5rem;
+}
+
+.attribution { font-size: 11px; text-align: center; padding-top: 1rem}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media (min-width: 900px) {
+    .flexresponsive {
+        flex-direction: row;
+    }
+}
