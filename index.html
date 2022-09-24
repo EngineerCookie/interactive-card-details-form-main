@@ -8,65 +8,74 @@
   <script src="scripts.js" defer></script>
   <title>Frontend Mentor | Interactive card details form</title>
 </head>
-<body class="no-margin">
-  <figure class="cards no-margin fullsize flex flexresponsive flexcenter">
-    <div id='card-back' class="card-back flex flexcol flexcenter-end">
-      <img src="./images/bg-card-back.png" class='card-design fullsize' />
-      <p class="card-csc" id="csc-target">000</p>
-    </div>
-    <div id='card-front' class="card-front flex flexrow flexstart-end flexwrap">
-      <img src="./images/bg-card-front.png" class='card-design fullsize' />
-      <div class="card-logo flex flexcol">
-        <img src="./images/card-logo.svg" class="logo-img" />
+<body>
+    <figure class="cards">
+      <div id='card-back' class="card-back flex flexcol flexcenter-end">
+        <img src="./images/bg-card-back.png" class='card-design fullsize' />
+        <p class="card-csc" id="csc-target">000</p>
       </div>
-      <div class="card-info flexwrap flex flexrow flexspace-between">
-        <p class="card-num flex flexrow flexspace-between">
-          <span id="card-num-target1">0000</span>
-          <span id="card-num-target2">0000</span>
-          <span id="card-num-target3">0000</span>
-          <span id="card-num-target4">0000</span></p>
-        <p class="card-detail" id="name-target">Jane Appleseed</p>
-        <p class="card-detail"><span id='month-target'>00</span>/<span id='year-target'>00</span></p>
-      </div>
-    </div>
-  </figure>
-  <main class="no-margin fullsize flex flexcol flexcenter">
-    <form 
-    class="input-form flex flexcol flexwrap flexgap" 
-    data-display>
-      <label for='owner-name' class="input-text">Cardholder Name</label>
-      <input type='text' id='owner-name' class='input-field' placeholder="e.g. Jane Appleseed" autocomplete="off" />
-      <label for='owner-name' class="error-msg" data-error-msg="name-blank">Can't be blank</label>
-      <label  for="card-num" class="input-text">Card Number</label>
-      <input type='text' id="card-num" class='input-field' maxlength="16" placeholder="e.g. 1234 5678 9123 0000" autocomplete="off" />
-      <label for='card-num' class="error-msg" data-error-msg="num-blank">Can't be blank</label>
-      <label for="card-num" class="error-msg" data-error-msg="card-num">Wrong format, numbers only. Don't even add spaces.</label>
-      <label for="card-num" class="error-msg" data-error-msg="num-length">There are 16 digits in a card number</label>
-      <div class="date-csc-container flex flexrow flexgap">
-        <fieldset id="exp-date" class="date-container flex flexrow flexwrap">
-          <legend class="input-text paddingbot">Exp. Date (MM/YY)</legend>
-          <label for='exp-mm' class="sr-only">Month</label>
-          <input maxlength='2' type='text' id="exp-mm" class='input-field' placeholder="MM" autocomplete="off" />
-          <label for="exp-yy" class="sr-only">Year</label>
-          <input maxlength='2' type='text' id="exp-yy" class='input-field' placeholder="YY" autocomplete="off" />
-          <label for="exp-date" class="error-msg" data-error-msg="date-blank">Can't be blank</label>
-          <label for='exp-date' class="error-msg" data-error-msg="date-invalid">Invalid date</label>
-        </fieldset>
-        <div class="csc-container flex flexcol">
-          <label for="card-csc" class="input-text paddingbot">CVC</label>
-          <input maxlength='3' type='text' id="card-csc" class='input-field' placeholder="e.g. 123" autocomplete="off" />
-          <label class="error-msg paddingtop" data-error-msg="csc">Can't be blank</label>
+      <div id='card-front' class="card-front flex flexrow flexstart-end flexwrap">
+        <img src="./images/bg-card-front.png" class='card-design fullsize' />
+        <div class="card-logo flex flexcol">
+          <img src="./images/card-logo.svg" class="logo-img" />
+        </div>
+        <div class="card-info flexwrap flex flexrow flexspace-between">
+          <p class="card-num flex flexrow flexspace-between">
+            <span id="card-num-target1">0000</span>
+            <span id="card-num-target2">0000</span>
+            <span id="card-num-target3">0000</span>
+            <span id="card-num-target4">0000</span></p>
+          <p class="card-detail" id="name-target">Jane Appleseed</p>
+          <p class="card-detail"><span id='month-target'>00</span>/<span id='year-target'>00</span></p>
         </div>
       </div>
-      <input type='button' value="Confirm" class="input-btn" id='confirm-btn' />
-    </form>
-    <div class="thank-page fullsize flex flexcol flexcenter hidden" data-display>
-      <img src="./images/icon-complete.svg" alt="check mark image" class="thank-img" />
-      <p class="thank-tittle">Thank you!</p>
-      <p class="thank-p">We've added your card details</p>
-      <input type="button" value="Continue" class="input-btn" />
-    </div>
-  </main>
+    </figure>
+
+
+    <main>
+      <form 
+      class="input-form flex flexcol flexgap" 
+      data-display>
+        <label for='owner-name' class="input-text">Cardholder Name</label>
+        <input required type='text' id='owner-name' class='input-field' placeholder="e.g. Jane Appleseed" autocomplete="off" />
+        <label for='owner-name' class="error-msg" data-error-msg="name-blank">Can't be blank</label>
+        <label for="card-num" class="input-text">Card Number</label>
+        <input required type='text' id="card-num" class='input-field' maxlength="16" placeholder="e.g. 1234 5678 9123 0000" autocomplete="off" />
+        <label for='card-num' class="error-msg" data-error-msg="num-blank">Can't be blank</label>
+        <label for="card-num" class="error-msg" data-error-msg="card-num">Wrong format, numbers only. Don't even add spaces.</label>
+        <label for="card-num" class="error-msg" data-error-msg="num-length">There are 16 digits in a card number</label>
+        <div class="date-csc-container flex flexrow flexgap width-full">
+          <fieldset id="exp-date" class="date-container flex flexcol flexwrap width-half">
+            <legend class="input-text paddingbot width-full">Exp. Date (MM/YY)</legend>
+            <label for='exp-mm' class="sr-only">Month</label>
+            <label for="exp-yy" class="sr-only">Year</label>
+            <div class="table width-full">
+              <div class='width-half table-cell'>
+                <input required maxlength='2' type='text' id="exp-mm" class='input-field' placeholder="MM" autocomplete="off" />
+              </div>
+              <div class="width-half table-cell">
+                <input required maxlength='2' type='text' id="exp-yy" class='input-field' placeholder="YY" autocomplete="off" />
+              </div>
+            </div>
+            <label for="exp-date" class="error-msg width-full" data-error-msg="date-blank">Can't be blank</label>
+            <label for='exp-date' class="error-msg width-full" data-error-msg="date-invalid">Invalid date</label>
+          </fieldset>
+          <div class="csc-container flex flexcol width-half">
+            <label for="card-csc" class="input-text paddingbot">CVC</label>
+            <input required required maxlength='3' type='text' id="card-csc" class='input-field' placeholder="e.g. 123" autocomplete="off" />
+            <label for='card-csc' class="error-msg paddingtop" data-error-msg="csc-blank">Can't be blank</label>
+            <label for='card-csc' class="error-msg paddingtop" data-error-msg="csc-invalid">Invalid number</label>
+          </div>
+        </div>
+        <input type='button' value="Confirm" class="input-btn" id='confirm-btn' />
+      </form>
+      <div class="thank-page fullsize flex flexcol flexcenter hidden" data-display>
+        <img src="./images/icon-complete.svg" alt="check mark image" class="thank-img" />
+        <p class="thank-tittle">Thank you!</p>
+        <p class="thank-p">We've added your card details</p>
+        <input type="button" value="Continue" class="input-btn" />
+      </div>
+    </main>
 
   
   <footer class="attribution">
@@ -75,33 +84,3 @@
   </footer>
 </body>
 </html>
-
-<!--
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
-
-  000
-
-  Cardholder Name
-  e.g. Jane Appleseed
-
-  Card Number
-  e.g. 1234 5678 9123 0000
-
-  Exp. Date (MM/YY)
-  MM
-  YY
-
-  CVC
-  e.g. 123
-
-  Confirm
-
-  <-- Completed state start ->
-
-  Thank you!
-  We've added your card details
-  Continue
-
--->

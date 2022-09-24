@@ -44,13 +44,14 @@
     margin: -1px !important;
 }
 .no-margin{margin: 0;}
+.width-half{width: 50%;}
+.width-full{width: 100%;}
 .fullsize{width: 100%; height: 100%;}
 .flex{display: flex;}
-.flexresponsive{flex-direction: column;}
 .flexcol{flex-direction: column;}
 .flexrow{flex-direction: row;}
 .flexwrap{flex-wrap: wrap;}
-.flexgap{gap: 1.1rem;}
+.flexgap{gap: 1rem;}
 .flexcenter{justify-content: center; align-items: center;}
 .flexcenter-end{justify-content: center; align-items: flex-end}
 .flexstart-end {justify-content: flex-start; align-items: flex-end;}
@@ -58,16 +59,29 @@
 .paddingbot{padding-bottom: 0.5rem}
 .paddingtop{padding-top: 0.5rem}
 .hidden {display: none;}
+.table{display: table;}
+.table-cell{display: table-cell;}
+.table-cell>input {width: 90%;}
+
 /*UTILITY CLASSES END*/
 
 /*MOBILE FIRTS*/
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+}
+
 body > *{
     font-family: var(--font-family);
-    width: 100vw;
-    height: 100%;
+
 }
 
 p {margin: 0;}
+
 
 /*############
 CARDS DESIGN
@@ -82,6 +96,11 @@ CARDS DESIGN
     width: 100%;
     padding: 5%;
     color: var(--color-white);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cards > div {
@@ -158,13 +177,17 @@ INPUTS FIELDS
 #############*/
 /*LAYOUT AND APPEARANCE*/
 main {
-    height: 57vh;  /*Make it max-content*/
+    height: max-content;  /*Make it max-content*/
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .input-form, .thank-page {
     width: min(400px, 90%);
-    height: min(400px, 100%);
+    height: max-content;
 }
 
 .input-text {
@@ -213,24 +236,12 @@ main {
     display: block;
 }
 
-.date-csc-container {
-    width: 100%;
-}
 
-fieldset {
+.date-container {
     border: none;
     margin: 0;
     padding: 0;
-    width: 50%;
     gap: 0.5rem;
-}
-
-.date-container > input {
-    width: 4rem;
-}
-
-.csc-container {
-    width: 50%;
 }
 
 .csc-container > * {
@@ -247,6 +258,11 @@ fieldset {
     font-family: var(--font-family);
     font-size: var(--fs-xl);
     letter-spacing: 1px;
+    transition: 0.1s ease-in-out;
+}
+
+.input-btn:hover {
+    scale: 1.05;
 }
 
 .thank-page {
@@ -268,11 +284,95 @@ fieldset {
     padding-bottom: 1.5rem;
 }
 
-.attribution { font-size: 11px; text-align: center; padding-top: 1rem}
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution { 
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 15px;
+    font-size: 11px; text-align: center;
+    margin-top: 1rem;}
+.attribution a { color: hsl(189, 100%, 50%); }
 
-@media (min-width: 900px) {
-    .flexresponsive {
+@media (min-width: 1000px) {
+
+    body {
         flex-direction: row;
+        justify-content: center;
+        margin: 0;
+        flex-wrap: wrap;
+    }
+
+    .cards {
+        background-size: 70% 100%; /*width x height*/
+        height: 100%;
+        width: 45%;
+        padding: 0 0 0 10rem;
+        color: var(--color-white);
+        margin: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+
+    .cards > div {
+        width: 445px;
+        height: 245px;
+    }
+
+    .card-front {
+        margin-top: inherit;
+        margin-right: inherit;
+    }
+    
+    .card-back {
+        margin-right: inherit;
+        align-self: flex-end;
+    }
+    
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 55%;
+        height: 100%;
+    }
+
+    .input-form {
+        justify-content: center;
+    }
+    .input-form, .thank-page {
+        width: 50%;
+        height: 50%;
+    }    
+
+    .card-info {
+        padding: 0 1.8rem 1.3rem 1.3rem;
+    }
+    .card-logo {
+        padding: 1.3rem;
+    }
+
+    .card-num {
+        font-size: 1.5rem;
+    }
+    
+    .card-detail, .card-csc {
+        font-size: 0.9rem;
+    }
+
+    .card-csc { /*Card Security Number*/
+        padding-right: 5rem;
+    }
+
+    .attribution { 
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        translate: 50% 0;
+        margin-top: inherit
     }
 }
